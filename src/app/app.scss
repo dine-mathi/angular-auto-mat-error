@@ -1,0 +1,30 @@
+nav {
+	padding: 12px;
+	background: #fafafa;
+	border-bottom: 1px solid rgba(0,0,0,0.08);
+
+	a {
+		color: #3f51b5;
+		text-decoration: none;
+		margin-right: 12px;
+		font-weight: 600;
+		padding: 6px 8px;
+		border-radius: 4px;
+		transition: background-color 120ms ease, color 120ms ease;
+	}
+
+	a:hover {
+		background: rgba(63,81,181,0.06);
+	}
+
+	a.active {
+		background: #3f51b5;
+		color: #fff;
+	}
+}
+
+/* Small screen spacing */
+@media (max-width: 480px) {
+	nav a { display: inline-block; margin-right: 8px; margin-bottom: 6px; }
+}
+

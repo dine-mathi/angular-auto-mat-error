@@ -1,0 +1,9 @@
+<form [formGroup]="editProfileForm">
+  <div>
+    <mat-form-field appMatErrorMessages>
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="email" required />
+      <mat-error></mat-error>
+    </mat-form-field>
+  </div>
+</form>

@@ -1,0 +1,11 @@
+<form [formGroup]="editProfileForm">
+  <div>
+    <mat-form-field>
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="email" required />
+      @if (email.invalid) {
+      <mat-error>{{ errorMessage() }}</mat-error>
+      }
+    </mat-form-field>
+  </div>
+</form>
