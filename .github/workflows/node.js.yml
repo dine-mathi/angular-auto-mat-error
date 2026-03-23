@@ -28,7 +28,10 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - name: Deploy 🚀
+      id: deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: dist/angular-auto-mat-error/browser # The folder where Angular outputs the build
         branch: gh-pages # The branch the action will deploy to
+    - name: Set URL env
+      run: echo "DEPLOY_URL=${{ steps.deploy.outputs.page_url }}" >> $GITHUB_ENV
