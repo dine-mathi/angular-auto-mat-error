@@ -9,13 +9,14 @@ on:
   pull_request:
     branches: [ "master" ]
   workflow_dispatch: #manual
-
+permissions:
+  contents: write # Important: allows the action to push to the gh-pages branch
 jobs:
   build:
 
     runs-on: ubuntu-latest
     env:
-      NODE_VERSION: '22.x' # Define it once here
+      NODE_VERSION: '24.x' # Define it once here
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ env.NODE_VERSION }}
@@ -26,3 +27,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: dist/your-project-name/browser # The folder where Angular outputs the build
+        branch: gh-pages # The branch the action will deploy to
